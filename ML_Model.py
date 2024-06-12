@@ -44,7 +44,8 @@ class MLModel:
                  n_jobs: int,
                  scoring: str,
                  n_iter: int,
-                 random_state: int):
+                 random_state: int,
+                 verbose: int = 1):
         self.ml_model = ml_model
         self.clf = None
         self.parameters = parameters
@@ -52,6 +53,7 @@ class MLModel:
         self.scoring = scoring
         self.n_iter = n_iter
         self.random_state = random_state
+        self.verbose = verbose
 
     def tune(self, X_features, y):
         """
@@ -71,7 +73,8 @@ class MLModel:
             n_jobs=self.n_jobs,
             scoring=self.scoring,
             n_iter=self.n_iter,
-            random_state=self.random_state)
+            random_state=self.random_state,
+            verbose=self.verbose)
 
         self.clf.fit(X_features, y)
 
@@ -130,7 +133,8 @@ forest = MLModel(ml_model=RandomForestClassifier(),
                  n_jobs=4,
                  scoring="roc_auc",
                  n_iter=10,
-                 random_state=0)
+                 random_state=0,
+                 verbose=2)
 
 gbm_parameters = {"max_depth": range(2, 6),
                   "min_samples_leaf": range(5, 55, 5),
@@ -144,7 +148,8 @@ gbm = MLModel(ml_model=GradientBoostingClassifier(),
               n_jobs=4,
               scoring="roc_auc",
               n_iter=10,
-              random_state=0)
+              random_state=0,
+              verbose=2)
 
 forest.tune(customer_obj.train_features,
             customer_obj.train_labels)
