@@ -1,7 +1,7 @@
 # MLModel Hyperparameter Tuning
 ### Overview
 
-This project provides a generalizable Python class, MLModel, that performs hyperparameter tuning using RandomizedSearchCV for various machine learning models. The project demonstrates how to tune and evaluate models such as RandomForestClassifier and GradientBoostingClassifier using a dataset of customer churn.
+This project provides a generalizable Python class, MLModel, that performs hyperparameter tuning using RandomizedSearchCV for various machine learning models. It demonstrates how to tune and evaluate models such as RandomForestClassifier and GradientBoostingClassifier using a dataset of customer churn.
 
 ### Features
 
